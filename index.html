@@ -3,123 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ================= OJS / GOOGLE SCHOLAR METADATA ================= -->
-
-<title>Dinamika Komunikasi Digital dan Media Sosial</title>
-
-<!-- Dublin Core -->
-<meta name="DC.Title" content="Dinamika Komunikasi Digital dan Media Sosial">
-<meta name="DC.Creator" content="Antan Permata">
-<meta name="DC.Subject" content="Komunikasi Digital, Media Sosial">
-<meta name="DC.Description" content="Penelitian ini membahas dinamika komunikasi digital dalam media sosial dan implikasinya terhadap opini publik.">
-<meta name="DC.Publisher" content="JurnalHub">
-<meta name="DC.Contributor" content="Universitas Teknologi Muhammadiyah Jakarta">
-<meta name="DC.Date" content="2024">
-<meta name="DC.Type" content="Text">
-<meta name="DC.Format" content="application/pdf">
-<meta name="DC.Identifier" content="https://jurnalhub.id/article/001">
-<meta name="DC.Language" content="id">
-<meta name="DC.Rights" content="© 2024 JurnalHub">
-
-<!-- Highwire Press -->
-<meta name="citation_title" content="Dinamika Komunikasi Digital dan Media Sosial">
-<meta name="citation_author" content="Antan Permata">
-<meta name="citation_publication_date" content="2024">
-<meta name="citation_journal_title" content="Jurnal Ilmu Komunikasi Digital">
-<meta name="citation_volume" content="1">
-<meta name="citation_issue" content="1">
-<meta name="citation_firstpage" content="1">
-<meta name="citation_lastpage" content="12">
-<meta name="citation_pdf_url" content="https://jurnalhub.id/pdf/001.pdf">
-
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ScholarlyArticle",
-  "headline":"Dinamika Komunikasi Digital dan Media Sosial",
-  "author":{
-    "@type":"Person",
-    "name":"Antan Permata"
-  },
-  "datePublished":"2024",
-  "publisher":{
-    "@type":"Organization",
-    "name":"JurnalHub"
-  },
-  "description":"Penelitian ini membahas dinamika komunikasi digital dalam media sosial dan implikasinya terhadap opini publik.",
-  "url":"https://jurnalhub.id/article/001"
-}
-</script>
+<title>JurnalHub | Jurnal Ilmiah Digital</title>
 
 <style>
-body{
-  font-family: "Georgia", serif;
-  background:#f8fafc;
-  color:#0f172a;
+:root{
+  --primary:#1e40af;
+  --secondary:#0f172a;
+  --accent:#38bdf8;
+  --bg:#f8fafc;
+  --card:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
   margin:0;
-  padding:2rem;
-  line-height:1.7;
+  padding:0;
+  font-family: "Segoe UI", sans-serif;
 }
-.article{
-  max-width:800px;
-  margin:auto;
-  background:white;
-  padding:2rem;
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+body{
+  background:var(--bg);
+  color:#0f172a;
 }
-h1{
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--primary),#2563eb);
+  color:white;
+  padding:1.2rem;
+  text-align:center;
+}
+
+header h1{
   font-size:1.8rem;
 }
-.meta{
+
+header p{
+  opacity:.9;
   font-size:.9rem;
-  color:#475569;
+}
+
+/* SEARCH */
+.search-box{
+  padding:1rem;
+  max-width:900px;
+  margin:auto;
+}
+
+.search-box input{
+  width:100%;
+  padding:.8rem;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  font-size:.95rem;
+}
+
+/* FILTER */
+.filters{
+  display:flex;
+  gap:.5rem;
+  justify-content:center;
+  flex-wrap:wrap;
   margin-bottom:1rem;
 }
-.section-title{
-  font-weight:bold;
-  margin-top:1.5rem;
+
+.filters button{
+  border:none;
+  background:#e2e8f0;
+  padding:.5rem .9rem;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.8rem;
 }
-.download{
-  margin-top:2rem;
-}
-.download a{
-  background:#1e40af;
+
+.filters button.active{
+  background:var(--primary);
   color:white;
-  padding:.6rem 1.2rem;
+}
+
+/* GRID */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:1rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border-radius:12px;
+  padding:1rem;
+  box-shadow:0 6px 20px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.card h3{
+  font-size:1rem;
+  margin-bottom:.4rem;
+}
+
+.meta{
+  font-size:.75rem;
+  color:#475569;
+  margin-bottom:.6rem;
+}
+
+.tag{
+  display:inline-block;
+  background:var(--accent);
+  color:#0369a1;
+  padding:.2rem .6rem;
+  border-radius:12px;
+  font-size:.7rem;
+  margin-bottom:.6rem;
+}
+
+.card button{
+  margin-top:.6rem;
+  border:none;
+  background:var(--primary);
+  color:white;
+  padding:.5rem;
   border-radius:6px;
-  text-decoration:none;
+  cursor:pointer;
+  font-size:.8rem;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+.modal-content{
+  background:white;
+  max-width:600px;
+  width:100%;
+  border-radius:12px;
+  padding:1.2rem;
+  animation:zoom .2s ease;
+}
+
+@keyframes zoom{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.modal h2{
+  font-size:1.2rem;
+  margin-bottom:.6rem;
+}
+
+.modal p{
+  font-size:.85rem;
+  line-height:1.5;
+  color:#334155;
+}
+
+.close{
+  margin-top:1rem;
+  background:#e11d48;
+  color:white;
+  border:none;
+  padding:.5rem 1rem;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:1rem;
+  font-size:.75rem;
+  color:#475569;
+}
+
+/* RESPONSIVE */
+@media(min-width:768px){
+  header h1{font-size:2.2rem}
 }
 </style>
 </head>
-
 <body>
 
-<article class="article">
+<header>
+  <h1>JurnalHub</h1>
+  <p>Portal Jurnal Ilmiah Digital & Interaktif</p>
+</header>
 
-<h1>Dinamika Komunikasi Digital dan Media Sosial</h1>
-
-<div class="meta">
-<strong>Penulis:</strong> Antan Permata<br>
-<strong>Jurnal:</strong> Jurnal Ilmu Komunikasi Digital<br>
-<strong>Tahun:</strong> 2024
+<div class="search-box">
+  <input type="text" id="search" placeholder="Cari judul jurnal atau penulis...">
 </div>
 
-<div class="section-title">Abstrak</div>
-<p>
-Penelitian ini membahas dinamika komunikasi digital dalam media sosial serta implikasinya terhadap pembentukan opini publik di era digital.
-</p>
-
-<div class="section-title">Kata Kunci</div>
-<p>Komunikasi Digital, Media Sosial, Opini Publik</p>
-
-<div class="download">
-<a href="pdf/001.pdf">⬇ Download Full Article (PDF)</a>
+<div class="filters">
+  <button class="active" data-filter="all">Semua</button>
+  <button data-filter="Komunikasi">Komunikasi</button>
+  <button data-filter="Ekonomi">Ekonomi</button>
+  <button data-filter="Teknologi">Teknologi</button>
 </div>
 
-</article>
+<div class="container">
+  <div class="grid" id="journalList"></div>
+</div>
+
+<footer>
+  © 2025 JurnalHub • Sistem Jurnal Digital
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button class="close" onclick="closeModal()">Tutup</button>
+  </div>
+</div>
+
+<script>
+const journals=[
+  {
+    title:"Dinamika Komunikasi Digital dan Media Sosial",
+    author:"Antan Permata",
+    year:"2024",
+    category:"Komunikasi",
+    abstract:"Penelitian ini membahas transformasi komunikasi digital dalam media sosial serta implikasinya terhadap pembentukan opini publik."
+  },
+  {
+    title:"Digitalisasi UMKM dan Transparansi Keuangan",
+    author:"Gozal Research",
+    year:"2025",
+    category:"Ekonomi",
+    abstract:"Studi ini mengkaji pengaruh sistem informasi akuntansi digital terhadap akuntabilitas UMKM di wilayah urban."
+  },
+  {
+    title:"Artificial Intelligence dalam Sistem Informasi",
+    author:"TechnoLab",
+    year:"2024",
+    category:"Teknologi",
+    abstract:"Artikel ini mengulas implementasi AI dalam pengolahan data dan pengambilan keputusan berbasis sistem informasi."
+  }
+];
+
+const list=document.getElementById("journalList");
+const search=document.getElementById("search");
+const filterBtns=document.querySelectorAll(".filters button");
+
+function render(data){
+  list.innerHTML="";
+  data.forEach(j=>{
+    list.innerHTML+=`
+    <div class="card">
+      <div>
+        <span class="tag">${j.category}</span>
+        <h3>${j.title}</h3>
+        <div class="meta">${j.author} • ${j.year}</div>
+      </div>
+      <button onclick="openModal('${j.title}','${j.abstract}')">Baca Abstrak</button>
+    </div>`;
+  });
+}
+
+render(journals);
+
+search.addEventListener("input",()=>{
+  const val=search.value.toLowerCase();
+  render(journals.filter(j=>
+    j.title.toLowerCase().includes(val) ||
+    j.author.toLowerCase().includes(val)
+  ));
+});
+
+filterBtns.forEach(btn=>{
+  btn.onclick=()=>{
+    filterBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const f=btn.dataset.filter;
+    render(f==="all"?journals:journals.filter(j=>j.category===f));
+  }
+});
+
+function openModal(title,text){
+  document.getElementById("modalTitle").innerText=title;
+  document.getElementById("modalText").innerText=text;
+  document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
